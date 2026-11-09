@@ -180,11 +180,20 @@ Complete Jenkins pipeline execution successfully completing all stages: Read ver
 
 ---
 
+### 13. GitHub Webhook Setup for Multibranch Pipeline Triggering
+Configuring the GitHub Push Webhook in **Settings ➔ Webhooks ➔ Add webhook** pointing to:
+`http://jenkins.aitechapp.fun:8080/multibranch-webhook-trigger/invoke?token=roboshop-catalogue`
+with `application/json` payload format and push events, triggering instant, automated Multibranch pipeline scans and builds on Jenkins whenever developers push to any branch.
+![GitHub Multibranch Webhook Setup](images/13-github-multibranch-webhook-setup.png)
+
+---
+
 ## 🛠️ Tech Stack & Tooling
 
 - **Application**: Node.js 20, Express, MongoDB client
 - **Testing Framework**: Jest `v29.x`, Supertest, `jest-junit`
 - **Static Analysis (SAST)**: SonarQube Community Server `Ubuntu 24.04`, SonarScanner CLI
-- **CI/CD Platform**: Jenkins (Declarative Pipeline with Pipeline Utility Steps, SonarQube Scanner, and AWS Steps)
+- **CI/CD Platform**: Jenkins (Declarative & Multibranch Pipeline)
+- **Event-Driven Automation**: GitHub Push Webhooks with Multibranch Scan Webhook Trigger Plugin
 - **Container Registry**: AWS ECR
 - **Build Agent**: AWS EC2 RHEL 9 instance (`t3.micro`)
