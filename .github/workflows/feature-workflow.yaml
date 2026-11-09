@@ -10,6 +10,7 @@ jobs:
     with:
       project: 'roboshop'
       component: 'catalogue'
+      environment: 'dev'
     secrets: inherit
     permissions:
       contents: read    # Required to check out code or read the repo
